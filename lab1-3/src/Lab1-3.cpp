@@ -9,8 +9,11 @@
 #include <algorithm>
 #include <iostream>
 
+
+
 using namespace std;
 
+double strToDouble(string str, char ch);
 //============================================================================
 // Global definitions visible to all methods and classes
 //============================================================================
@@ -18,8 +21,8 @@ using namespace std;
 // FIXME (1): Define a data structure to hold bid information together as a single unit of storage.
 struct bidInformation{
 	string name;
-	enum fund{GENERAL, ENTERPRISE};
-	int vechicleID;
+	string fund;
+	string vechicleID;
 	double bidAmnt;
 };
 
@@ -29,11 +32,11 @@ struct bidInformation{
  *
  * @param ?type? data structure containing the bid info
  */
-void displayBid(?type? ?variable?) {
-    cout << "Title: " << ?variable? << endl;
-    cout << "Fund: " << ?variable? << endl;
-    cout << "Vehicle: " << ?variable? << endl;
-    cout << "Bid Amount: " << ?variable? << endl;
+void displayBid(bidInformation currentBid){
+    cout << "Title: " << currentBid.name << endl;
+    cout << "Fund: " << currentBid.fund << endl;
+    cout << "Vehicle: " << currentBid.vechicleID << endl;
+    cout << "Bid Amount: " << currentBid.bidAmnt << endl;
 
     return;
 }
@@ -44,27 +47,28 @@ void displayBid(?type? ?variable?) {
  *
  * @return data structure containing the bid info
  */
-?retval? getBid() {
-    ?type? ?variable?;
+bidInformation getBid() {
+
+	bidInformation currentBid;
 
     cout << "Enter title: ";
     cin.ignore();
-    getline(cin, ?variable?);
+    getline(cin, currentBid.name);
 
     cout << "Enter fund: ";
-    cin >> ?variable?;
+    cin >> currentBid.fund;
 
     cout << "Enter vehicle: ";
     cin.ignore();
-    getline(cin, ?variable?);
+    getline(cin, currentBid.vechicleID);
 
     cout << "Enter amount: ";
     cin.ignore();
     string strAmount;
     getline(cin, strAmount);
-    ?variable? = strToDouble(strAmount, '$');
+    currentBid.bidAmnt = strToDouble(strAmount, '$');
 
-    return ?retval?;
+    return currentBid;
 }
 
 /**
@@ -87,7 +91,7 @@ double strToDouble(string str, char ch) {
 int main() {
 
     // FIXME (2): Declare instance of data structure to hold bid information
-	?type? ?variable?
+	bidInformation currentBid;
 
     // loop to display menu until exit chosen
     int choice = 0;
@@ -102,10 +106,10 @@ int main() {
         // FIXME (5): Complete the method calls then test the program
         switch (choice) {
             case 1:
-            	?variable? = getBid();
+            	currentBid = getBid();
                 break;
             case 2:
-                displayBid(?variable?);
+                displayBid(currentBid);
                 break;
         }
     }
