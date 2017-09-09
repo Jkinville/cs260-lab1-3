@@ -13,25 +13,31 @@
 
 using namespace std;
 
-double strToDouble(string str, char ch);
 //============================================================================
 // Global definitions visible to all methods and classes
 //============================================================================
+//I needed to put the function signature here so it can be used before another function later on.
+double strToDouble(string str, char ch);
 
-// FIXME (1): Define a data structure to hold bid information together as a single unit of storage.
+// Since we only need the data for our data structure and not the related functions I used a struct containing the data
 struct bidInformation{
 	string name;
 	string fund;
 	string vechicleID;
 	double bidAmnt;
+
+	//constructor for bidInformation
+	bidInformation(){
+		bidAmnt = 0;
+	}
 };
 
-// FIXME (4): Display the bid values passed in data structure
 /**
  * Display the bid information
  *
  * @param ?type? data structure containing the bid info
  */
+//I simply passed the bidInformation object from main and used its fields to get the desired output
 void displayBid(bidInformation currentBid){
     cout << "Title: " << currentBid.name << endl;
     cout << "Fund: " << currentBid.fund << endl;
@@ -41,12 +47,13 @@ void displayBid(bidInformation currentBid){
     return;
 }
 
-// FIXME (3): Store input values in data structure
 /**
  * Prompt user for bid information
  *
  * @return data structure containing the bid info
  */
+/*Since I want this to set the values for a bidInformation object I set the return type as that, instantiated it
+and set the correct fields for the values to be entered into*/
 bidInformation getBid() {
 
 	bidInformation currentBid;
@@ -90,7 +97,7 @@ double strToDouble(string str, char ch) {
  */
 int main() {
 
-    // FIXME (2): Declare instance of data structure to hold bid information
+    //create an instanced of bidInformation to hold the data returned from the setter functions.
 	bidInformation currentBid;
 
     // loop to display menu until exit chosen
