@@ -16,7 +16,7 @@ using namespace std;
 //============================================================================
 // Global definitions visible to all methods and classes
 //============================================================================
-//I needed to put the function signature here so it can be used before another function later on.
+//I needed to put the function signature here so it can be used before another function.
 double strToDouble(string str, char ch);
 
 // Since we only need the data for our data structure and not the related functions I used a struct containing the data
