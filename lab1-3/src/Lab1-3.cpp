@@ -9,8 +9,6 @@
 #include <algorithm>
 #include <iostream>
 
-
-
 using namespace std;
 
 //============================================================================
@@ -52,8 +50,10 @@ void displayBid(bidInformation currentBid){
  *
  * @return data structure containing the bid info
  */
-/*Since I want this to set the values for a bidInformation object I set the return type as that, instantiated it
-and set the correct fields for the values to be entered into*/
+/*
+ *Since I want this to set the values for a bidInformation object I set the return type as that, instantiated it
+ *and set the correct fields for the values to be entered into
+*/
 bidInformation getBid() {
 
 	bidInformation currentBid;
